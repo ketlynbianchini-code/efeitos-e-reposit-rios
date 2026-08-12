@@ -1,0 +1,224 @@
+/* ==========================================================================
+   1. Variáveis CSS & Configuração de Temas (Light / Dark Mode)
+   ========================================================================== */
+:root {
+  /* Tema Claro (Padrão) */
+  --bg-body: #f0f4f8;
+  --bg-card: #ffffff;
+  --text-main: #334e68;
+  --text-muted: #627d98;
+  --color-primary: #007bff;
+  --color-primary-hover: #0056b3;
+  --color-accent: #e0f2fe;
+  --color-border: #dbe3ec;
+
+  /* Sombras Tema Claro */
+  --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-card-hover: 0 12px 24px rgba(0, 123, 255, 0.22);
+
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Suporte Automático ao Modo Escuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-body: #0f172a;
+    --bg-card: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --color-primary: #38bdf8;
+    --color-primary-hover: #0284c7;
+    --color-accent: rgba(56, 189, 248, 0.15);
+    --color-border: #334155;
+
+    /* Sombra Brilhante para Modo Escuro */
+    --shadow-card: 0 4px 14px rgba(0, 0, 0, 0.5);
+    --shadow-card-hover: 0 8px 25px rgba(56, 189, 248, 0.35);
+  }
+}
+
+/* Reset Global */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding-bottom: 3rem;
+  transition: var(--transition-smooth);
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   2. Cabeçalho
+   ========================================================================== */
+.main-header {
+  background-color: var(--bg-card);
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 2rem;
+  text-align: center;
+  transition: var(--transition-smooth);
+}
+
+.main-header h1 {
+  font-size: 2.2rem;
+}
+
+.main-header h1 i {
+  color: var(--color-primary);
+  margin-right: 10px;
+}
+
+.main-header p {
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   3. Desafio 1: Estrutura Flexbox dos Cards
+   ========================================================================== */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Exibe o conteúdo interno em LINHA (Imagem e Conteúdo lado a lado) */
+article {
+  display: flex;
+  flex-direction: row;     /* Solução Desafio 1: Conteúdo em linha */
+  align-items: center;     /* Alinhamento central vertical */
+  gap: 1.5rem;
+  
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-smooth);
+}
+
+/* Card ocupa 100% da largura da página */
+.card {
+  flex: 1 1 100%; /* Solução Desafio 1: Ocupar 100% da largura */
+  width: 100%;
+}
+
+/* align-self para quebrar o alinhamento central da imagem */
+article img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  align-self: flex-start; /* Solução Desafio 1: Alinha imagem no topo */
+  transition: var(--transition-smooth);
+}
+
+/* ==========================================================================
+   4. Desafio 2: Efeito :hover e Profundidade
+   ========================================================================== */
+article:hover {
+  transform: scale(1.02);            /* Solução Desafio 2: Aumento leve no hover */
+  box-shadow: var(--shadow-card-hover);/* Solução Desafio 2: Sombra mais intensa */
+  border-color: var(--color-primary);
+  cursor: pointer;
+}
+
+article:hover img {
+  filter: brightness(1.05);
+}
+
+/* Estrutura interna do texto */
+.post-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.post-category {
+  display: inline-block;
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.post-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.post-body {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.post-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--color-border);
+  padding-top: 0.75rem;
+}
+
+.post-tags span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background-color: var(--bg-body);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+
+.btn-primary {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Responsividade para Dispositivos Móveis */
+@media (max-width: 768px) {
+  article {
+    flex-direction: column;
+  }
+
+  article img {
+    width: 100%;
+    height: 200px;
+    align-self: center;
+  }
+
+  .post-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
