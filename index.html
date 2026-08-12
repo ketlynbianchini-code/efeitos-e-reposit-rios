@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Feed de postagens responsivo utilizando CSS Flexbox e interações com hover.">
+  <title>Flexbox Post Feed | GitHub Edition</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="container">
+      <h1><i class="fas fa-layer-group"></i> Feed de Postagens</h1>
+      <p>Projeto de estudos em CSS Flexbox, Microinterações e Dark Mode</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="post-list">
+
+      <article class="card post">
+        <div class="post-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=400" alt="Código no computador">
+        </div>
+
+        <div class="post-content">
+          <header class="post-header">
+            <span class="post-category">Desenvolvimento</span>
+            <h2 class="post-title">Dominando o Flexbox Profissionalmente</h2>
+          </header>
+
+          <section class="post-body">
+            <p>Aprenda a controlar o alinhamento de elementos usando flex-direction, align-self e flex-grow para criar interfaces modernas e totalmente responsivas.</p>
+          </section>
+
+          <footer class="post-footer">
+            <div class="post-tags">
+              <span>#CSS3</span>
+              <span>#Flexbox</span>
+              <span>#Frontend</span>
+            </div>
+            <button class="btn-primary">Ler Artigo <i class="fas fa-arrow-right"></i></button>
+          </footer>
+        </div>
+      </article>
+
+      <article class="card post">
+        <div class="post-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=400" alt="Layout UI e UX">
+        </div>
+
+        <div class="post-content">
+          <header class="post-header">
+            <span class="post-category">Design UI/UX</span>
+            <h2 class="post-title">Microinterações e Profundidade no CSS</h2>
+          </header>
+
+          <section class="post-body">
+            <p>Entenda como transformar a experiência do usuário adicionando transform: scale(), sombras dinâmicas no hover e adaptação automática ao Dark Mode.</p>
+          </section>
+
+          <footer class="post-footer">
+            <div class="post-tags">
+              <span>#UI</span>
+              <span>#UX</span>
+              <span>#DarkMode</span>
+            </div>
+            <button class="btn-primary">Ler Artigo <i class="fas fa-arrow-right"></i></button>
+          </footer>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
